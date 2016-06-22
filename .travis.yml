@@ -1,22 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: HIrIqvsMNEK58BHawDQ8EuQH/akv5ThIdGkdCgUT6nxR5nmVbKzgljM6gq2ObxFNfRPQWXcqh7YPcuSuQDXYNnPEpuFqNEJy3rjwgKp//I/yxkM88WoKadiV3gnTBmTwgy2qkm0v/mL3bqQOfw+eADNrsuTgJr9i5QIM6tsDeuMiS7Jw3+dvZrsfaWWAHHBJigdUsp8BXWcSOCvlVdn00Nf5+PHt4k6fdKNLySiIhzZ9MsDi04vfOcREWX3fVxmeN7Kd0EBJ8I56rdUP8RdWHfX5Rb1Be766c/7dMpcz64f2EG23RGuN28ytlH6gOzOPcZpzaQT9GXUsVlL0g4w2mKCGVUVDR5pcO/Gl1fD+cibNfV8ahEeC+oS5Qtx3sF5SwI4ceC3O5HZb+DUOJ4fsna/XMFZn0DpD9tr5BxtGEBGANR1w6ZE1fCloXvlARZySgthVRO//a1I7DwpUWi7tJvaJPRjRC9brAQBTqIvYlKjZJZ4LniTwf6CULSfz8sN/DNqP2kJtQDNMPCwWVHypAXjNbbQHMKBqOq2dYrqa9PLkrb0uiExVZkg8xB56wwNWWZNnYAwxGeGdRrT0L5WPz6a544EnnNRi/ErcPPJfy4U2CkwRY7rBaYpWNlxaUph3Usji2p0+UeciX3415vdJhn/sQ+AoWvNOa3ukKNQ36V4=
+  app: km-tracker-ui
+  on:
+    repo: timbo/km-tracker-ui
